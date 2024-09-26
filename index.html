@@ -11,6 +11,7 @@
 <body>
     <div id="forgeViewer" style="width: 100%; height: 100%;"></div>
     <script>
+        var viewer;  // Define viewer globally so it can be accessed in loadModel
         var options = {
             env: 'AutodeskProduction',
             accessToken: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IlhrUFpfSmhoXzlTYzNZS01oRERBZFBWeFowOF9SUzI1NiIsInBpLmF0bSI6ImFzc2MifQ.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiYnVja2V0OmNyZWF0ZSIsImJ1Y2tldDpyZWFkIl0sImNsaWVudF9pZCI6IjBrVHBweXJ5UFp5S1IwVGtWNElhQjFEVDIzamZUTDZuV21XYk56bXFqMExhS3FhRSIsImlzcyI6Imh0dHBzOi8vZGV2ZWxvcGVyLmFwaS5hdXRvZGVzay5jb20iLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbSIsImp0aSI6IlZqZWJkVGlGd25DYzlTY2lMMGRuc2E5WkxubHlTVk1hRENuRmRWcVBrcVlXUnBUVjRJT21VSmxoVEtQa0xZcGkiLCJleHAiOjE3MjczNjE1NDl9.hQmg2AYfRPNGYJHr_G0S1L3xseCE2IE02ZqSxxueP__qC8xdeLeNGytOEldi9KX7RUWnLOP2IJrfC-7k6p5plbS6GSKz8faSxMQmy0-xs0rR5eeItn8s3BHsUn3OpHRXhxqQr26dvFXQX8QgvgXQ09MWH54wLCiJ8F6wQe-RGC8ReBO0RGyM8q4D-bJaeb1GlG2JFfli7mEnI2AylFAKNCN_IMcORVWIr7hp7c02aE48v9BpHTc5FGPYzVYoZ5tiCuBFKpUtgWscNoyb1FT4dZv33Y_7zDLXeQduWNKYZIS051HknuNKwbvqiwXm9jeG7D6O3-jv3yRgqPM94DfcFA' // Replace with your access token
@@ -18,7 +19,7 @@
 
         Autodesk.Viewing.Initializer(options, function() {
             var viewerDiv = document.getElementById('forgeViewer');
-            var viewer = new Autodesk.Viewing.GuiViewer3D(viewerDiv);
+            viewer = new Autodesk.Viewing.GuiViewer3D(viewerDiv);  // Assign the viewer to the global variable
             var startedCode = viewer.start();
 
             // Check for successful viewer initialization (startedCode === 0 means success)
@@ -34,7 +35,7 @@
             Autodesk.Viewing.Document.load('urn:' + urn, function(doc) {
                 var defaultModel = doc.getRoot().getDefaultGeometry();
                 if (defaultModel) {
-                    viewer.loadDocumentNode(doc, defaultModel);
+                    viewer.loadDocumentNode(doc, defaultModel);  // Use the global viewer variable
                     console.log("Model loaded successfully");
                 } else {
                     console.error("No default geometry found.");
