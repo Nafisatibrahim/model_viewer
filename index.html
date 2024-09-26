@@ -18,7 +18,7 @@
             var viewerDiv = document.getElementById('forgeViewer');
             var viewer = new Autodesk.Viewing.GuiViewer3D(viewerDiv);
             var startedCode = viewer.start();
-            if (startedCode === Autodesk.Viewing.ViewingErrorCode.NO_ERROR) {
+            if (startedCode === Autodesk.Viewing.ViewingErrorCode.SUCCESS) {
                 console.log("Viewer initialized successfully");
                 loadModel('dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YnVja2V0X2IxMDEtbXBpcGUtMDktMjUvRVhULUIxMDEtTS1QSVBFLVhYWFgubndj');
             } else {
