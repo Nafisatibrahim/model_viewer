@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autodesk Forge Viewer</title>
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self'; 
+        frame-src https://nafisatibrahim.github.io; 
+        script-src 'self' https://developer.api.autodesk.com 'unsafe-inline'; 
+        style-src 'self' https://developer.api.autodesk.com 'unsafe-inline'; 
+        font-src 'self' https://developer.api.autodesk.com data:; 
+        img-src 'self' https://developer.api.autodesk.com; 
+        connect-src 'self' https://developer.api.autodesk.com https://api-js.mixpanel.com; 
+        worker-src 'self' https://developer.api.autodesk.com blob:;
+    ">
     <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.60/viewer3D.min.js"></script>
     <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.60/style.min.css" type="text/css">
 </head>
@@ -13,7 +23,7 @@
         var viewer;  
         var options = {
             env: 'AutodeskProduction',
-            accessToken: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IlhrUFpfSmhoXzlTYzNZS01oRERBZFBWeFowOF9SUzI1NiIsInBpLmF0bSI6ImFzc2MifQ.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiYnVja2V0OmNyZWF0ZSIsImJ1Y2tldDpyZWFkIl0sImNsaWVudF9pZCI6IjBrVHBweXJ5UFp5S1IwVGtWNElhQjFEVDIzamZUTDZuV21XYk56bXFqMExhS3FhRSIsImlzcyI6Imh0dHBzOi8vZGV2ZWxvcGVyLmFwaS5hdXRvZGVzay5jb20iLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbSIsImp0aSI6ImE0Zlc2c2pqYTA1eVBhQklmNUtYdElncmtVUUFHNnQxUWp3MVVwdkY0VjJibUdFWEM1OG9VWVJsMTY3QmRmc1giLCJleHAiOjE3MjczNjcxNTJ9.b-6v6_aBqx8zIGKkaOrr_CtR1WxEsWMlBqqKqgEvBixPYMiu-ZL0leEFcedi9Wn1FK_rbjC0JikVG7RzzMooJ2COaZiQP6fMxp6XFmcW9fem83pVmaR__d2UxxuqTX1REs4zi2mpug7XDbnldyW9zeniKwK4nR_-ThnBOUL5Q2fyotf27N32h6LNkQLSmLmGVOIo_n4vqBg2HjV_45l8jmtYrgFRgfPgABg1IRHsqJKy6Ed-ZOZAS2rBEqWZ452oCNPWO0yPGFAg6sABcb0nsKNd_5tqSyGHvnM16VXg0tTlHzn74lI5eVyWUxyuVHUeJ6Sl-utHl6sP1MwjercSFQ'  // Replace with your access token
+            accessToken: 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImI4YjJkMzNhLTFlOTYtNDYwNS1iMWE4LTgwYjRhNWE4YjNlNyIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbSIsImNsaWVudF9pZCI6IjBrVHBweXJ5UFp5S1IwVGtWNElhQjFEVDIzamZUTDZuV21XYk56bXFqMExhS3FhRSIsInNjb3BlIjpbImRhdGE6cmVhZCIsImRhdGE6d3JpdGUiLCJidWNrZXQ6Y3JlYXRlIiwiYnVja2V0OnJlYWQiXSwiaXNzIjoiaHR0cHM6Ly9kZXZlbG9wZXIuYXBpLmF1dG9kZXNrLmNvbSIsImV4cCI6MTcyNzM3MDQwMiwianRpIjoiQVQtOTBmYTQ2NmEtY2VhNy00MGJmLTg2OTktMTcyNDliZDZmZTUxIn0.Uy46fMhpfZWDeEMT8bEaIZKl6OV2rHPBCFzUK9A3zrcagFC1w7N9a7k71QmysfhK2ae6vqpP2KC0FeuhssUkfzytOgwMEx6fvTwv3S7bgs6gMOhqUh3J9dIyE3-NmgT8GyDnlvvXLzYN1284w2A8snR8H7KzGRW926SXMvYcDxWDfjjQ-F36Uw07bkgUtn_wqCAfAHsn9blzwVIQV30wtOknvewX831vB8gsF-cGWDsYgYMED7b33tll-MYX6YlqUjpb6HpVlrRuqcQnmRhVizwgrxEFijgb4c2SKVVMo2d0Hy1uILQFFzMuSc4QLI5kwnh6qRitpH1gUTI3Jn2bVA'  // Replace with your actual access token
         };
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -24,7 +34,7 @@
 
                 if (startedCode === 0) {
                     console.log("Viewer initialized successfully");
-                    loadModel('dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YnVja2V0X2IxMDEtbXBpcGUtMDktMjUvRVhULUIxMDEtTS1QSVBFLVhYWFgubndj');
+                    loadModel('dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YnVja2V0X2IxMDEtbXBpcGUtMDktMjUvRVhULUIxMDEtTS1QSVBFLVhYWFgubndj');  // Replace with your actual URN
                 } else {
                     console.error("Error initializing viewer:", startedCode);
                 }
@@ -47,3 +57,4 @@
     </script>
 </body>
 </html>
+
