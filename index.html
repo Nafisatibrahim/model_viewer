@@ -23,7 +23,7 @@
         var viewer;  
         var options = {
             env: 'AutodeskProduction',
-            accessToken: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IlhrUFpfSmhoXzlTYzNZS01oRERBZFBWeFowOF9SUzI1NiIsInBpLmF0bSI6ImFzc2MifQ.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiYnVja2V0OmNyZWF0ZSIsImJ1Y2tldDpyZWFkIl0sImNsaWVudF9pZCI6IjBrVHBweXJ5UFp5S1IwVGtWNElhQjFEVDIzamZUTDZuV21XYk56bXFqMExhS3FhRSIsImlzcyI6Imh0dHBzOi8vZGV2ZWxvcGVyLmFwaS5hdXRvZGVzay5jb20iLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbSIsImp0aSI6IkttanpyOTlWdXJ6VjhaYXlibXAySlo5Q0o1dlpFU052YW41djU4Sm9UR1MxbW40bUttUklTazJDSFBpYzZmNHQiLCJleHAiOjE3MjczNzE3MDR9.G1O3He1twtShixYajIIcnMrPDK56DoPihG9gVY9WNfe79Q0nlQp5kQUr2JoNekOxgUP4uUpNobpmGQ66toSgZddC4IXodAB_yULr8YxjnmC-8CcfgNwnPk6Qgn-F1mMmyRoLRKpNTpY1jczY5Veu_umfiqc9oWDP5aRap_RRVi7VFSDii54VxGehINVgyLi3PWPqeSK8V7-p1STv6MRfiqnv7LL-Khf06U3Wp0A-6BFPDbDjaWEO89H_cEJMlslr0k-chgAKshio-fwX-tL5dVH6omMr5AiULXlCoGyUREaLdvrtKTq_25wA_8sbcm9Pj4EqAdi2jr0qrcSsqNGVfQ'  // Replace with your actual access token
+            accessToken: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IlhrUFpfSmhoXzlTYzNZS01oRERBZFBWeFowOF9SUzI1NiIsInBpLmF0bSI6ImFzc2MifQ.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiYnVja2V0OmNyZWF0ZSIsImJ1Y2tldDpyZWFkIl0sImNsaWVudF9pZCI6IjBrVHBweXJ5UFp5S1IwVGtWNElhQjFEVDIzamZUTDZuV21XYk56bXFqMExhS3FhRSIsImlzcyI6Imh0dHBzOi8vZGV2ZWxvcGVyLmFwaS5hdXRvZGVzay5jb20iLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbSIsImp0aSI6Imtia293U2F1Z0RlVWJjYWdpQzEzWE8wTGhxSjlqYlRLZnRyZzBDamQzVW1lNlRmbkxja0tqRzBlN0dmWExtY1QiLCJleHAiOjE3MjczNzE5ODB9.ZP2TtIgqUi4dVyqOKGn6wywutGCws83DRU4htLeY-baEZOLx-TJUR7QWEMnSlfv4y0b2oDq9zei-TKV7V4POlpzXYp5gKSjjPeaICmBxYcBPOwNJN5L9JF501p9Tqr1xw1T0tLLmyePualYAkyfJ-HMQEPIkx7JMoxFWJT7XSMsSQ7oh7l6SSwnZ2Z7hNOQLFXV12Z_VAvTG7O3cIesA7vXQMenGAUO6LHtmrkc5cMgo4aUw-_r0U0KtnK5V3S-XT8HSlaPOqSrHV3yKzw2lRI-3B6QUAt3QYle1feHN6DrIiMj5DgaZrgtVudCrmhx1T2JeoEBOLLURvk6txGL9lQ'  // Replace with your actual access token
         };
 
         document.addEventListener("DOMContentLoaded", function() {
@@ -34,7 +34,7 @@
 
                 if (startedCode === 0) {
                     console.log("Viewer initialized successfully");
-                    loadModel('dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YnVja2V0X2IxMDEtbXBpcGUtMDktMjUvRVhULUIxMDEtTS1QSVBFLVhYWFgubndj');  // Replace with your actual URN
+                    loadModel('dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YnVja2V0X2IxMDEtbXBpcGUtMDktMjUvZ2F0ZWhvdXNlLm53ZA');  // Replace with your actual URN
                 } else {
                     console.error("Error initializing viewer:", startedCode);
                 }
