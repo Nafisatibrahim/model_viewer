@@ -4,38 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autodesk Forge Viewer</title>
-    <!-- Use version 7.57 to match the working example if needed -->
     <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.60/viewer3D.min.js"></script>
     <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.60/style.min.css" type="text/css">
 </head>
 <body>
-    <div id="forgeViewer" style="width: 100%; height: 100%;"></div>
+    <div id="forgeViewer" style="width: 100%; height: 600px;"></div>
     <script>
-        var viewer;  // Define viewer globally so it can be accessed in loadModel
+        var viewer;  
         var options = {
             env: 'AutodeskProduction',
-            accessToken: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IlhrUFpfSmhoXzlTYzNZS01oRERBZFBWeFowOF9SUzI1NiIsInBpLmF0bSI6ImFzc2MifQ.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiYnVja2V0OmNyZWF0ZSIsImJ1Y2tldDpyZWFkIl0sImNsaWVudF9pZCI6IjBrVHBweXJ5UFp5S1IwVGtWNElhQjFEVDIzamZUTDZuV21XYk56bXFqMExhS3FhRSIsImlzcyI6Imh0dHBzOi8vZGV2ZWxvcGVyLmFwaS5hdXRvZGVzay5jb20iLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbSIsImp0aSI6ImE0Zlc2c2pqYTA1eVBhQklmNUtYdElncmtVUUFHNnQxUWp3MVVwdkY0VjJibUdFWEM1OG9VWVJsMTY3QmRmc1giLCJleHAiOjE3MjczNjcxNTJ9.b-6v6_aBqx8zIGKkaOrr_CtR1WxEsWMlBqqKqgEvBixPYMiu-ZL0leEFcedi9Wn1FK_rbjC0JikVG7RzzMooJ2COaZiQP6fMxp6XFmcW9fem83pVmaR__d2UxxuqTX1REs4zi2mpug7XDbnldyW9zeniKwK4nR_-ThnBOUL5Q2fyotf27N32h6LNkQLSmLmGVOIo_n4vqBg2HjV_45l8jmtYrgFRgfPgABg1IRHsqJKy6Ed-ZOZAS2rBEqWZ452oCNPWO0yPGFAg6sABcb0nsKNd_5tqSyGHvnM16VXg0tTlHzn74lI5eVyWUxyuVHUeJ6Sl-utHl6sP1MwjercSFQ' // Replace with your access token
+            accessToken: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IlhrUFpfSmhoXzlTYzNZS01oRERBZFBWeFowOF9SUzI1NiIsInBpLmF0bSI6ImFzc2MifQ.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiYnVja2V0OmNyZWF0ZSIsImJ1Y2tldDpyZWFkIl0sImNsaWVudF9pZCI6IjBrVHBweXJ5UFp5S1IwVGtWNElhQjFEVDIzamZUTDZuV21XYk56bXFqMExhS3FhRSIsImlzcyI6Imh0dHBzOi8vZGV2ZWxvcGVyLmFwaS5hdXRvZGVzay5jb20iLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbSIsImp0aSI6ImE0Zlc2c2pqYTA1eVBhQklmNUtYdElncmtVUUFHNnQxUWp3MVVwdkY0VjJibUdFWEM1OG9VWVJsMTY3QmRmc1giLCJleHAiOjE3MjczNjcxNTJ9.b-6v6_aBqx8zIGKkaOrr_CtR1WxEsWMlBqqKqgEvBixPYMiu-ZL0leEFcedi9Wn1FK_rbjC0JikVG7RzzMooJ2COaZiQP6fMxp6XFmcW9fem83pVmaR__d2UxxuqTX1REs4zi2mpug7XDbnldyW9zeniKwK4nR_-ThnBOUL5Q2fyotf27N32h6LNkQLSmLmGVOIo_n4vqBg2HjV_45l8jmtYrgFRgfPgABg1IRHsqJKy6Ed-ZOZAS2rBEqWZ452oCNPWO0yPGFAg6sABcb0nsKNd_5tqSyGHvnM16VXg0tTlHzn74lI5eVyWUxyuVHUeJ6Sl-utHl6sP1MwjercSFQ'  // Replace with your access token
         };
 
-        Autodesk.Viewing.Initializer(options, function() {
-            var viewerDiv = document.getElementById('forgeViewer');
-            viewer = new Autodesk.Viewing.GuiViewer3D(viewerDiv);  // Assign the viewer to the global variable
-            var startedCode = viewer.start();
+        document.addEventListener("DOMContentLoaded", function() {
+            Autodesk.Viewing.Initializer(options, function() {
+                var viewerDiv = document.getElementById('forgeViewer');
+                viewer = new Autodesk.Viewing.GuiViewer3D(viewerDiv);  
+                var startedCode = viewer.start();
 
-            // Check for successful viewer initialization (startedCode === 0 means success)
-            if (startedCode === 0) {
-                console.log("Viewer initialized successfully");
-                loadModel('dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YnVja2V0X2IxMDEtbXBpcGUtMDktMjUvRVhULUIxMDEtTS1QSVBFLVhYWFgubndj'); // Replace with your URN
-            } else {
-                console.error("Error initializing viewer:", startedCode);
-            }
+                if (startedCode === 0) {
+                    console.log("Viewer initialized successfully");
+                    loadModel('dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YnVja2V0X2IxMDEtbXBpcGUtMDktMjUvRVhULUIxMDEtTS1QSVBFLVhYWFgubndj');
+                } else {
+                    console.error("Error initializing viewer:", startedCode);
+                }
+            });
         });
 
         function loadModel(urn) {
             Autodesk.Viewing.Document.load('urn:' + urn, function(doc) {
                 var defaultModel = doc.getRoot().getDefaultGeometry();
                 if (defaultModel) {
-                    viewer.loadDocumentNode(doc, defaultModel);  // Use the global viewer variable
+                    viewer.loadDocumentNode(doc, defaultModel);  
                     console.log("Model loaded successfully");
                 } else {
                     console.error("No default geometry found.");
